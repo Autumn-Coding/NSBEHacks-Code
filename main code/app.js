@@ -39,23 +39,25 @@
             monster.y = 32 + (Math.random() * (canvas.height - 64));
         };
         
-        
+        window.onKeyDown = function(e){
+            switch(e.keyCode){
+                case 37:
+                    hero.x -= hero.speed * modifier;
+                    break;
+                case 39:
+                    hero.x += hero.speed * modifier;
+                    break;
+                case 38:
+                    hero.y -= hero.speed * modifier;
+                    break;
+                case 40:
+                    hero.y += hero.speed * modifier;
+                    break;
+            }
+        }
         
                 // Update game objects
         var update = function (modifier) {
-
-            if (38 in keysDown) { // Player holding up
-                hero.y -= hero.speed * modifier;
-            }
-            if (40 in keysDown) { // Player holding down
-                hero.y += hero.speed * modifier;
-            }
-            if (37 in keysDown) { // Player holding left
-                hero.x -= hero.speed * modifier;
-            }
-            if (39 in keysDown) { // Player holding right
-                hero.x += hero.speed * modifier;
-            }
 
                     // Are they touching?
             if (
