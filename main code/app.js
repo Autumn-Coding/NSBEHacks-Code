@@ -3,8 +3,18 @@
         var ctx = canvas.getContext("2d");
         canvas.width = 512;
         canvas.height = 480;
-        canvas.style.backgroundImage = "url('temporary maze.jpg')"
+        //canvas.style.backgroundImage = "url('temporary maze.jpg')"
         document.body.appendChild(canvas);
+
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.src = 'temporary maze.jpg';
+
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+            img.style.display = 'none';
+          };
+          
 
         // Trying to figure out what colour a pixel is so the non white pixels can be defined as walls
 
@@ -13,6 +23,9 @@
             var data = pixel.data;
           
             const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]})`;
+            
+            //window.alert(rgba)
+
 
             if (rgba !== "rgba(255, 255, 255, 255)") {
                 return true;
@@ -35,6 +48,7 @@
             }
           }
 
+          //document.getElementById("test").innerHTML = colouredPixels;
 
         
           
@@ -56,6 +70,16 @@
         
                 // Handle keyboard controls
         var keysDown = {};
+        
+        addEventListener("keydown", function (e) {
+            keysDown[e.keyCode] = true;
+        }, false);
+        
+        addEventListener("keyup", function (e) {
+            delete keysDown[e.keyCode];
+        }, false);
+        
+        
         
         
         
