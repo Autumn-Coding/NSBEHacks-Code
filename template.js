@@ -10,12 +10,7 @@
         
         
                 // Background image
-        var bgReady = false;
-        var bgImage = new Image();
-        bgImage.onload = function () {
-            bgReady = true;
-        };
-        bgImage.src = "images/background.png";
+        canvas.style.backgroundColor="grey"
         
         
         
