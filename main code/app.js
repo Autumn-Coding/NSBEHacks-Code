@@ -86,9 +86,9 @@
             ctx.rect(hero.x, hero.y,20,20);
             ctx.stroke();
         
-            if (monsterReady) {
-                ctx.drawImage(monsterImage, monster.x, monster.y);
-            }
+            ctx.rect(monster.x, monster.y,20,20);
+            ctx.stroke();
+
                     // Score
             ctx.fillStyle = "white";
             ctx.font = "24px Helvetica";
