@@ -7,11 +7,7 @@
         canvas.height = 480;
         document.body.appendChild(canvas);
         
-        
-        
-                // Background image
-        canvas.style.backgroundColor="grey"
-        
+
         
         
                 // Game objects
@@ -85,23 +81,20 @@
         
                 // Draw everything
         var render = function () {
-            if (bgReady) {
-                ctx.drawImage(bgImage, 0, 0);
-            }
-        
-            if (heroReady) {
-                ctx.drawImage(heroImage, hero.x, hero.y);
-            }
+
+            canvas.style.backgroundColor="grey"
+            ctx.rect(hero.x, hero.y,20,20);
+            ctx.stroke();
         
             if (monsterReady) {
                 ctx.drawImage(monsterImage, monster.x, monster.y);
             }
                     // Score
-            ctx.fillStyle = "rgb(250, 250, 250)";
+            ctx.fillStyle = "white";
             ctx.font = "24px Helvetica";
             ctx.textAlign = "left";
             ctx.textBaseline = "top";
-            ctx.fillText("Monsterrs caught: " + monstersCaught, 32, 32);
+            ctx.fillText("Monsters caught: " + monstersCaught, 32, 32);
         };
         
         
