@@ -5,7 +5,39 @@
         canvas.height = 480;
         canvas.style.backgroundImage = "url('temporary maze.jpg')"
         document.body.appendChild(canvas);
+
+        // Trying to figure out what colour a pixel is so the non white pixels can be defined as walls
+
+        function isNotWhite(x, y) {                  
+            var pixel = ctx.getImageData(x, y, 1, 1);
+            var data = pixel.data;
+          
+            const rgba = `rgba(${data[0]}, ${data[1]}, ${data[2]}, ${data[3]})`;
+
+            if (rgba !== "rgba(255, 255, 255, 255)") {
+                return true;
+            }
+
+            else {
+                return false;
+            }
+          }
+
+        let colouredPixels = []
+
+        for (i = 0; i < 512; i++) {
+            for (j = 0; j < 480; j++) {
+
+                if (isNotWhite(i, j)) {
+                    colouredPixels.push([i, j]);
+                }
+
+            }
+          }
+
+
         
+          
 
         
                 // Game objects
