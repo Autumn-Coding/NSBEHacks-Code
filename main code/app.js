@@ -5,10 +5,10 @@
         var ctx = canvas.getContext("2d");
         canvas.width = 512;
         canvas.height = 480;
+        canvas.style.backgroundImage = "url('temporary maze.jpg')"
         document.body.appendChild(canvas);
         
 
-        
         
                 // Game objects
         var hero = {
