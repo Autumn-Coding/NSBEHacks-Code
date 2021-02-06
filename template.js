@@ -1,6 +1,4 @@
-		//Test
-        
-        // Create the canvas
+		// Create the canvas
         var canvas = document.createElement("canvas");
         var ctx = canvas.getContext("2d");
         canvas.width = 512;
@@ -10,7 +8,12 @@
         
         
                 // Background image
-        canvas.style.backgroundColor="grey"
+        var bgReady = false;
+        var bgImage = new Image();
+        bgImage.onload = function () {
+            bgReady = true;
+        };
+        bgImage.src = "images/background.png";
         
         
         
