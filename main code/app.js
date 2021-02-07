@@ -239,6 +239,15 @@ function updateScreen() {
     ctx.endPath();
 }
 
+function close(){
+    if (container.children.length > 1) {
+    container.removeChild(
+        container.children[0]
+    );
+    }
+}
+window.addEventListener("click", close);
+
 function checkSpace(axis, direction) {
     var isIt = true;
     if (direction == "right") {
@@ -267,26 +276,14 @@ document.addEventListener('keydown', keyPressed);
 
 function keyPressed(e) {
     var key = e.which;
-    if (key == 37) {
-        var checked = checkSpace("x", "left");
-        if (checked == true) {
+    if (key == 37 && character.x != 0) {
             character.x += -tileSide;
-        }
-    }  else if (key == 39) {
-        var checked = checkSpace("x", "right");
-        if (checked == true) {
+    }  else if (key == 39 && character.x != canvas.width - tileSide) {
             character.x += tileSide;
-        }
-    }   else if (key == 38) {
-        var checked = checkSpace("y", "up");
-        if (checked == true) {
+    }   else if (key == 38 && character.y != 0) {
             character.y += -tileSide;
-        }
-    }   else if (key == 40) {
-        var checked = checkSpace("y", "down");
-        if (checked == true) {
+    }   else if (key == 40 && character.y != canvas.height - tileSide) {
             character.y += tileSide;
-        }
     }
     updateScreen()
 }
