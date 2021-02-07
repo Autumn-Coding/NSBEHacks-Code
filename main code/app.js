@@ -19,6 +19,29 @@ var container = document.getElementById("container")
         gameRows.push(y)
     }
 
+/*
+list of occupied squares (water):
+on row 0: 10
+on row 1: 17`
+on row 5: 3
+on row 8: 8
+on row 9: 1
+
+*/
+
+class WaterTile {
+    constructor (x, y) {
+        this.x = x;
+        this.y = y;
+        this.colour = "aqua";
+        this.active = true
+    }
+
+    draw(ctx) {
+        ctx.rect(this.x,this.y, tileSide, tileSide)
+    }
+}
+
     var character = {
         x: gameColumns[0],
         y: gameRows[0]
