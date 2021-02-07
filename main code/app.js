@@ -20,9 +20,6 @@ var container = document.getElementById("container")
     var columns = [];
     var rows = [];
 
-    for (x = 0, x <= canvas.width - tileSize.width, x += tileSize.width) {
-        columns.push(x);
-    }
     
 
 function updateCharacter() {
