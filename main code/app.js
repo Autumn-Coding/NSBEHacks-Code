@@ -32,7 +32,7 @@ on row 9: 1
 */
 
 class WaterTile {
-    constructor (x, y) {
+    constructor (y, x) {
         this.x = x;
         this.y = y;
         this.colour = "aqua";
@@ -46,11 +46,11 @@ class WaterTile {
 }
 
 let water = [
-    new WaterTile(gameColumns[0], gameRows[10]),
-    new WaterTile(gameColumns[1], gameRows[17]),
-    new WaterTile(gameColumns[5], gameRows[3]),
-    new WaterTile(gameColumns[8], gameRows[8]),
-    new WaterTile(gameColumns[9], gameRows[9]),
+    new WaterTile(gameRows[0], gameColumns[10]),
+    new WaterTile(gameRows[1], gameColumns[17]),
+    new WaterTile(gameRows[5], gameColumns[3]),
+    new WaterTile(gameRows[8], gameColumns[8]),
+    new WaterTile(gameRows[9], gameColumns[1]),
 ]
 
     var character = {
