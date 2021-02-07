@@ -1,3 +1,5 @@
+
+
 var container = document.getElementById("container")
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext("2d");
@@ -43,6 +45,13 @@ class WaterTile {
     }
 }
 
+let water = {
+    x0y10: new WaterTile(gameColumns[0], gameRows[10]),
+    x1y17: new WaterTile(gameColumns[1], gameRows[17]),
+    x5y3: new WaterTile(gameColumns[5], gameRows[3]),
+    x8y8: new WaterTile(gameColumns[8], gameRows[8]),
+    x9y9: new WaterTile(gameColumns[9], gameRows[9]),
+}
 
     var character = {
         x: gameColumns[0],
@@ -65,6 +74,7 @@ function updateCharacter() {
     ctx.beginPath();
     ctx.rect(goal.x,goal.y,tileSide,tileSide);
     ctx.rect(character.x,character.y,tileSide,tileSide);
+    water.x0y10.draw(ctx)
     ctx.stroke();
     ctx.endPath();
 }
