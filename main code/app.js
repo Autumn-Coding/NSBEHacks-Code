@@ -237,11 +237,11 @@ function updateScreen() {
 function checkSpace(axis, direction) {
     var isIt = true;
     if (direction == "right") {
-        if (character.x == canvas.width - tileSide || (walls.find(x => x.y == character.y) && walls.find(x => x.x == character.x + tileSide))) {
+        if (character.x == canvas.width - tileSide || (walls.find(x => {[x.y == character.y, x.x == character.x + tileSide]}))) {
             isIt = false;
         }
     } else if (direction == "left") {
-        if (character.x == 0 || (walls.find(x => x.y == character.y) && walls.find(x => x.x == character.x - tileSide))) {
+        if (character.x == 0 || (walls.find(x => {x.y == character.y, x.x == character.x - tileSide}))) {
             isIt = false;
         }
     } else if (direction == "up") {
