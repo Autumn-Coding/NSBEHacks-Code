@@ -172,6 +172,50 @@ let water = {
             x: gameColumns[10],
             y: gameRows[4]
         },
+        {
+            x: gameColumns[12],
+            y: gameRows[4]
+        },
+        {
+            x: gameColumns[13],
+            y: gameRows[4]
+        },
+        {
+            x: gameColumns[2],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[4],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[6],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[7],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[9],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[12],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[16],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[17],
+            y: gameRows[5]
+        },
+        {
+            x: gameColumns[18],
+            y: gameRows[5]
+        },
     ]
 
 
