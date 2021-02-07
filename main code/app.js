@@ -1,11 +1,12 @@
 var canvas = document.createElement("canvas");
 var ctx = canvas.getContext("2d");
-canvas.width = 500;
+canvas.width = 1000;
 canvas.height = 500;
 document.body.appendChild(canvas);
+//canvas.style.backgroundImage()
 
 
-canvas.style.backgroundColor = 'grey';
+canvas.style.backgroundColor = '';
 var hero = {
     x: 50,
     y: 50
