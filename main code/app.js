@@ -11,6 +11,7 @@ var tile = {
     x: 0,
     y: 0
 };
+//hey
 
 // const tileArray = [];  // bottom right corner of each tile
 
