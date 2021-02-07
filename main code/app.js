@@ -3,32 +3,33 @@ var container = document.getElementById("container")
     var ctx = canvas.getContext("2d");
     canvas.width = 1000;
     canvas.height = 500;
-    canvas.style.position = "absolute";
-    canvas.style.border   = "1px solid";
-    canvas.style.backgroundColor = 'grey';
+    canvas.style.backgroundImage = 'url("sand.jpg")';
     container.appendChild(canvas);
 
     var character = {
-        x: 50,
-        y: 50
+        x: 0,
+        y: 0
     };
 
-    var tileSize = {
-        width: canvas.width/40,
-        height: canvas.height/20
-    }
-    var columns = [];
-    var rows = [];
+    var tileSide = 20;
+    var gameColumns = [];
+    var gameRows = [];
 
-    
+
+    for(x = 0; x <= canvas.width - tileSide; x += tileSide) {
+        gameColumns.push(x)
+    }
+    for(y = 0; y <= canvas.height - tileSide; y += tileSide) {
+        gameRows.push(y)
+    }
+
 
 function updateCharacter() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
-    ctx.rect(character.x,character.y,50,50);
+    ctx.rect(character.x,character.y,tileSide,tileSide);
     ctx.stroke();
     ctx.endPath();
-    ctx.fillText(columns,10,10);
 }
 
 
@@ -38,14 +39,14 @@ document.addEventListener('keydown', keyPressed);
 
 function keyPressed(e) {
     var key = e.which;
-    if (key == 37 && character.x > 0) {
-        character.x += -50;
-    }  else if (key == 39 && character.x + 50 < canvas.width) {
-        character.x += 50;
-    }   else if (key == 38 && character.y > 0) {
-        character.y += -50;
-    }   else if (key == 40 && character.y + 50 < canvas.height) {
-        character.y += 50;
+    if (key == 37 && character.x > gameColumns[0]) {
+        character.x += -tileSide;
+    }  else if (key == 39 && character.x + tileSide < canvas.width) {
+        character.x += tileSide;
+    }   else if (key == 38 && character.y > gameRows[0]) {
+        character.y += -tileSide;
+    }   else if (key == 40 && character.y + tileSide < canvas.height) {
+        character.y += tileSide;
     }
     updateCharacter()
 }
