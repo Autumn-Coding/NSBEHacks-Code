@@ -63,18 +63,129 @@ let water = {
         y: gameRows[7]
     }
 
-    var walls = [{
-        x: goal.x,
-        y: goal.y
-    }]
+    var walls = [
+        {
+            x: goal.x,
+            y: goal.y
+        },
+        {
+            x: gameColumns[2],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[3],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[4],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[2],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[11],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[15],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[16],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[17],
+            y: gameRows[0]
+        },
+        {
+            x: gameColumns[4],
+            y: gameRows[1]
+        },
+        {
+            x: gameColumns[7],
+            y: gameRows[1]
+        },
+        {
+            x: gameColumns[8],
+            y: gameRows[1]
+        },
+        {
+            x: gameColumns[13],
+            y: gameRows[1]
+        },
+        {
+            x: gameColumns[16],
+            y: gameRows[1]
+        },
+        {
+            x: gameColumns[4],
+            y: gameRows[2]
+        },
+        {
+            x: gameColumns[7],
+            y: gameRows[2]
+        },
+        {
+            x: gameColumns[8],
+            y: gameRows[2]
+        },
+        {
+            x: gameColumns[13],
+            y: gameRows[2]
+        },
+        {
+            x: gameColumns[16],
+            y: gameRows[2]
+        },
+        {
+            x: gameColumns[1],
+            y: gameRows[3]
+        },
+        {
+            x: gameColumns[2],
+            y: gameRows[3]
+        },
+        {
+            x: gameColumns[7],
+            y: gameRows[3]
+        },
+        {
+            x: gameColumns[13],
+            y: gameRows[3]
+        },
+        {
+            x: gameColumns[2],
+            y: gameRows[4]
+        },
+        {
+            x: gameColumns[4],
+            y: gameRows[4]
+        },
+        {
+            x: gameColumns[7],
+            y: gameRows[4]
+        },
+        {
+            x: gameColumns[10],
+            y: gameRows[4]
+        },
+    ]
 
 
-function updateCharacter() {
+function updateScreen() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.rect(goal.x,goal.y,tileSide,tileSide);
     ctx.rect(character.x,character.y,tileSide,tileSide);
     water.x0y10.draw(ctx)
+    
+    for (i = 0; i < walls.length; i++) {
+        ctx.fillRect(walls[i].x, walls[i].y,tileSide,tileSide);
+    }
+    ctx.fillRect(character.x,character.y,tileSide,tileSide);
     ctx.stroke();
     ctx.endPath();
 }
@@ -128,8 +239,8 @@ function keyPressed(e) {
             character.y += tileSide;
         }
     }
-    updateCharacter()
+    updateScreen()
 }
 
 
-document.onload = updateCharacter();
+document.onload = updateScreen();
