@@ -3,10 +3,31 @@ var ctx = canvas.getContext("2d");
 canvas.width = 1000;
 canvas.height = 500;
 document.body.appendChild(canvas);
-//canvas.style.backgroundImage()
+canvas.style.backgroundImage=("url('sand.jpg')");
+
+var tile = {
+    width: canvas.width/40,
+    height: canvas.height/20,
+    x: 0,
+    y: 0
+};
+
+// const tileArray = [];  // bottom right corner of each tile
+
+// for (i = 0; i < 40; i++) {
+//     tile.x += tile.width;
+
+//     for (j = 0; i < 20; j++) {
+//         tile.y += tile.height;
+
+//         tileArray.push([tile.x,tile.y]);
+
+//     }
+}
+
+//console.log(tileArray);
 
 
-canvas.style.backgroundColor = '';
 var hero = {
     x: 50,
     y: 50
