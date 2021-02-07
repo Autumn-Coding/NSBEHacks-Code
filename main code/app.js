@@ -1,7 +1,7 @@
 var container = document.getElementById("container")
     var canvas = document.createElement("canvas");
     var ctx = canvas.getContext("2d");
-    canvas.width = 500;
+    canvas.width = 1000;
     canvas.height = 500;
     canvas.style.position = "absolute";
     canvas.style.border   = "1px solid";
@@ -9,10 +9,21 @@ var container = document.getElementById("container")
     container.appendChild(canvas);
 
     var character = {
-    x: 50,
+        x: 50,
         y: 50
     };
 
+    var tileSize = {
+        width: canvas.width/40,
+        height: canvas.height/20
+    }
+    var columns = [];
+    var rows = [];
+
+    for (x = 0, x <= canvas.width - tileSize.width, x += tileSize.width) {
+        columns.push(x);
+    }
+    
 
 function updateCharacter() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -20,6 +31,7 @@ function updateCharacter() {
     ctx.rect(character.x,character.y,50,50);
     ctx.stroke();
     ctx.endPath();
+    ctx.fillText(columns,10,10);
 }
 
 
