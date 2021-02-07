@@ -32,7 +32,7 @@ on row 9: 1
 */
 
 class WaterTile {
-    constructor (x, y) {
+    constructor (y, x) {
         this.x = x;
         this.y = y;
         this.colour = "aqua";
@@ -40,18 +40,19 @@ class WaterTile {
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.colour;
-        ctx.fillRect(this.x,this.y, tileSide, tileSide);
+            ctx.fillStyle = this.colour;
+            ctx.fillRect(this.x,this.y, tileSide, tileSide);
+
     }
 }
 
-let water = {
-    x0y10: new WaterTile(gameColumns[0], gameRows[10]),
-    x1y17: new WaterTile(gameColumns[1], gameRows[17]),
-    x5y3: new WaterTile(gameColumns[5], gameRows[3]),
-    x8y8: new WaterTile(gameColumns[8], gameRows[8]),
-    x9y9: new WaterTile(gameColumns[9], gameRows[9]),
-}
+let water = [
+    new WaterTile(gameRows[0], gameColumns[10]),
+    new WaterTile(gameRows[1], gameColumns[17]),
+    new WaterTile(gameRows[5], gameColumns[3]),
+    new WaterTile(gameRows[8], gameColumns[8]),
+    new WaterTile(gameRows[9], gameColumns[1]),
+]
 
     var character = {
         x: gameColumns[0],
@@ -224,11 +225,15 @@ function updateScreen() {
     ctx.beginPath();
     ctx.rect(goal.x,goal.y,tileSide,tileSide);
     ctx.rect(character.x,character.y,tileSide,tileSide);
-    water.x0y10.draw(ctx)
-    
+    for (i = 0; i < water.length; i++){
+        water[i].draw(ctx)
+    }
+
     for (i = 0; i < walls.length; i++) {
+        ctx.fillStyle = "black"
         ctx.fillRect(walls[i].x, walls[i].y,tileSide,tileSide);
     }
+    ctx.fillStyle = "white"
     ctx.fillRect(character.x,character.y,tileSide,tileSide);
     ctx.stroke();
     ctx.endPath();
