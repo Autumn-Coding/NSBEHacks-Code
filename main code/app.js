@@ -40,8 +40,10 @@ class WaterTile {
     }
 
     draw(ctx) {
-        ctx.fillStyle = this.colour;
-        ctx.fillRect(this.x,this.y, tileSide, tileSide);
+        if (active === true) {
+            ctx.fillStyle = this.colour;
+            ctx.fillRect(this.x,this.y, tileSide, tileSide);
+        }   
     }
 }
 
