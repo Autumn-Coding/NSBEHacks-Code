@@ -12,10 +12,10 @@ var container = document.getElementById("container")
     var gameRows = [];
 
 
-    for(x = tileSide; x <= canvas.width - tileSide; x += tileSide) {
+    for(x = 0; x <= canvas.width - tileSide; x += tileSide) {
         gameColumns.push(x)
     }
-    for(y = tileSide; y <= canvas.height - tileSide; y += tileSide) {
+    for(y = 0; y <= canvas.height - tileSide; y += tileSide) {
         gameRows.push(y)
     }
 
@@ -29,6 +29,12 @@ var container = document.getElementById("container")
         y: gameRows[7]
     }
 
+    var walls = [{
+        x: goal.x,
+        y: goal.y
+    }]
+
+
 function updateCharacter() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
@@ -39,9 +45,26 @@ function updateCharacter() {
 }
 
 function checkSpace(axis, direction) {
-    if (character.axis = x) {
-        if
+    var isIt = true;
+    if (direction == "right") {
+        if (character.x == canvas.width - tileSide || (walls.find(x => x.y == character.y) && walls.find(x => x.x == character.x + tileSide))) {
+            isIt = false;
+        }
+    } else if (direction == "left") {
+        if (character.x == 0 || (walls.find(x => x.y == character.y) && walls.find(x => x.x == character.x - tileSide))) {
+            isIt = false;
+        }
+    } else if (direction == "up") {
+        if (character.y == 0 || (walls.find(y => y.x == character.x) && walls.find(y => y.y == character.y - tileSide))) {
+            isIt = false;
+        }
+    } else if (direction == "down") {
+        if (character.y == canvas.height - tileSide || (walls.find(y => y.x == character.x) && walls.find(y => y.y == character.y + tileSide))) {
+            isIt = false;
+        }
     }
+
+    return isIt;
 }
 
 
@@ -49,20 +72,26 @@ document.addEventListener('keydown', keyPressed);
 
 function keyPressed(e) {
     var key = e.which;
-    if (key == 37 && character.x > gameColumns[0]) {
-        var checked = checkSpace(x, left);
+    if (key == 37) {
+        var checked = checkSpace("x", "left");
         if (checked == true) {
             character.x += -tileSide;
         }
-    }  else if (key == 39 && character.x + tileSide < canvas.width) {
-        var checked = checkSpace();
+    }  else if (key == 39) {
+        var checked = checkSpace("x", "right");
         if (checked == true) {
             character.x += tileSide;
         }
-    }   else if (key == 38 && character.y > gameRows[0]) {
-        character.y += -tileSide;
-    }   else if (key == 40 && character.y + tileSide < canvas.height) {
-        character.y += tileSide;
+    }   else if (key == 38) {
+        var checked = checkSpace("y", "up");
+        if (checked == true) {
+            character.y += -tileSide;
+        }
+    }   else if (key == 40) {
+        var checked = checkSpace("y", "down");
+        if (checked == true) {
+            character.y += tileSide;
+        }
     }
     updateCharacter()
 }
