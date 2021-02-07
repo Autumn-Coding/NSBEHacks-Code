@@ -12,17 +12,17 @@ var container = document.getElementById("container")
     var gameRows = [];
 
 
-    for(x = tileSide; x <= canvas.width - tileSide; x += tileSide) {
+    for(x = 0; x <= canvas.width - tileSide; x += tileSide) {
         gameColumns.push(x)
     }
-    for(y = tileSide; y <= canvas.height - tileSide; y += tileSide) {
+    for(y = 0; y <= canvas.height - tileSide; y += tileSide) {
         gameRows.push(y)
     }
 
 /*
 list of occupied squares (water):
 on row 0: 10
-on row 1: 17`
+on row 1: 17
 on row 5: 3
 on row 8: 8
 on row 9: 1
@@ -34,13 +34,15 @@ class WaterTile {
         this.x = x;
         this.y = y;
         this.colour = "aqua";
-        this.active = true
+        this.active = true;
     }
 
     draw(ctx) {
-        ctx.rect(this.x,this.y, tileSide, tileSide)
+        ctx.fillStyle = this.colour;
+        ctx.fillRect(this.x,this.y, tileSide, tileSide);
     }
 }
+
 
     var character = {
         x: gameColumns[0],
