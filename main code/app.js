@@ -22,7 +22,7 @@ var container = document.getElementById("container")
 /*
 list of occupied squares (water):
 on row 0: 10
-on row 1: 17`
+on row 1: 17
 on row 5: 3
 on row 8: 8
 on row 9: 1
@@ -34,13 +34,15 @@ class WaterTile {
         this.x = x;
         this.y = y;
         this.colour = "aqua";
-        this.active = true
+        this.active = true;
     }
 
     draw(ctx) {
-        ctx.rect(this.x,this.y, tileSide, tileSide)
+        ctx.fillStyle = this.colour;
+        ctx.fillRect(this.x,this.y, tileSide, tileSide);
     }
 }
+
 
     var character = {
         x: gameColumns[0],
