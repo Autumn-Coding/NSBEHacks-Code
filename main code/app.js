@@ -24,7 +24,7 @@ var tile = {
 //         tileArray.push([tile.x,tile.y]);
 
 //     }
-}
+//}
 
 //console.log(tileArray);
 
